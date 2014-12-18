@@ -19,6 +19,8 @@ class UsersServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('pipindex/users');
+
+		include __DIR__.'/../../routes.php';
 	}
 
 	/**
@@ -28,7 +30,6 @@ class UsersServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-
 		$this->app['users'] = $this->app->share(function($app)
 		{
 			return new Users;

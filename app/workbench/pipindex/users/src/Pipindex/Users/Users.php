@@ -11,12 +11,8 @@ namespace Pipindex\Users;
 
 class Users {
 
-//    public static function greeting(){
-//        return "What up dawg";
-//    }
-
-    public function doSomething()
+    public function SaySomething($text)
     {
-        echo 'Doing something!';
+        echo 'Say something: ' . (string)$text;
     }
 }

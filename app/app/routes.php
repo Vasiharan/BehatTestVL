@@ -14,13 +14,9 @@
 
 Route::get('/', function()
 {
-
-
-	return Users::doSomething();
-
-	//return View::make('hello');
+	return Users::SaySomething('From root routes.php');
 });
 
 Route::get('test', function(){
-	return 'Vasi';
+	return View::make('hello');
 });
