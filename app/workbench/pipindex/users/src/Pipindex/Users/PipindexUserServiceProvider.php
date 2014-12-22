@@ -4,7 +4,7 @@ namespace Pipindex\Users;
 
 use Illuminate\Support\ServiceProvider;
 
-class PipindexUserServiceProvider extends ServiceProvider {
+class PipindexUserServiceProvider extends \Zizaco\Confide\ServiceProvider {
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -20,6 +20,8 @@ class PipindexUserServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
+        parent::boot();
+
         $this->package('pipindex/users');
 
         include __DIR__.'/../../routes.php';
@@ -32,14 +34,7 @@ class PipindexUserServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $providers = array(
-            'Zizaco\Confide\ServiceProvider'
-        );
-
-        foreach ($providers as $provider)
-        {
-            $this->instances[] = $this->app->register($provider);
-        }
+        parent::register();
 
         $this->app['config']['auth.model'] = 'Pipindex\Users\PipindexUser';
         $this->app['config']['auth.driver'] = 'eloquent';
