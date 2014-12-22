@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
+	'debug' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -121,7 +121,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Pipindex\Users\UsersServiceProvider'
+		'Pipindex\Users\UsersServiceProvider',
+		'Pipindex\Users\PipindexUserServiceProvider',
+		'Kohkimakimoto\Adminer\AdminerServiceProvider'
 
 	),
 

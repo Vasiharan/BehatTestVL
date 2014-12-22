@@ -14,9 +14,7 @@
 
 Route::get('/', function()
 {
-	return Users::SaySomething('From root routes.php');
-});
-
-Route::get('test', function(){
 	return View::make('hello');
 });
+
+Route::any('adminer', 'Kohkimakimoto\Adminer\Controllers\AdminerController@index');
