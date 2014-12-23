@@ -45,6 +45,7 @@ class PipindexUserServiceProvider extends \Zizaco\Confide\ServiceProvider {
             $this->instances[] = $this->app->register($provider);
         }
 
+
         $this->app['config']['auth.model'] = 'Pipindex\Users\PipindexUser';
         $this->app['config']['auth.driver'] = 'eloquent';
         $this->app['config']['auth.table'] = 'pipindex_users';
@@ -66,11 +67,15 @@ class PipindexUserServiceProvider extends \Zizaco\Confide\ServiceProvider {
 
         $this->app->booting(function()
         {
+
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('Confide', 'Zizaco\Confide\Facade');
             $loader->alias('Entrust', 'Zizaco\Entrust\EntrustFacade');
             $loader->alias('PipindexUser', 'Pipindex\Facades\PipindexUser');
             $loader->alias('PipindexRole', 'Pipindex\Facades\PipindexRole');
+
+            //Config from vendor specific areas can only be done when 'booting'
+            \Config::set('entrust::role', 'Pipindex\Users\PipindexRole');
         });
     }
 
