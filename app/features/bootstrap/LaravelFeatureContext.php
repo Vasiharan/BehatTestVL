@@ -8,6 +8,7 @@ use Behat\Gherkin\Node\TableNode;
 use Illuminate\Foundation\Testing\ApplicationTrait;
 use PHPUnit_Framework_Assert as PHPUnit;
 use Symfony\Component\DomCrawler\Crawler;
+use Pipindex\Users;
 
 /**
  * Defines application features from the specific context.
@@ -59,7 +60,7 @@ class LaravelFeatureContext implements Context, SnippetAcceptingContext
      */
     public function iAmLoggedIn()
     {
-        $user = new User;
+        $user = new \Pipindex\Users\PipindexUser();
 
         $this->be($user);
     }
