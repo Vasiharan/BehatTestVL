@@ -5,10 +5,9 @@
     <title>User auth with Confide</title>
 </head>
 <body>
-    <h1>Hello Confide</h1>
+    <h1>Hello Admin</h1>
     <p>
-Hi
         <?php echo (Confide::user() ?: 'visitor') ?>
-</p>
+    </p>
 </body>
 </html>

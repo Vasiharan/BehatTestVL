@@ -85,3 +85,8 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+//TODO: Should really be within the package but doesn't work!
+//Only admin can create users
+Entrust::routeNeedsRole( 'users/create', array('Admin'), Redirect::to('/'));
+

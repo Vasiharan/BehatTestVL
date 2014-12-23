@@ -11,7 +11,22 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('PipindexRoleTableSeeder');
+
+		$this->command->info('roles table seeded!');
+
+		$this->call('PipindexUserTableSeeder');
+
+		$this->command->info('pipindex_users table seeded!');
+
+		$this->call('PipindexRoleAttachTableSeeder');
+
+		$this->command->info('assigned_roles table seeded!');
+
+		$this->call('PermissionsTableSeeder');
+
+		$this->command->info('permissions table seeded!');
 	}
 
 }
+

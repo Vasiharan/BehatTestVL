@@ -50,7 +50,7 @@ class UsersController extends Controller
     public function login()
     {
         if (Confide::user()) {
-            return View::make('users::users.hello');
+            return $this->displayUserView();
         } else {
             return View::make(Config::get('confide::login_form'));
         }
@@ -67,7 +67,7 @@ class UsersController extends Controller
         $input = Input::all();
 
         if ($repo->login($input)) {
-            return View::make('users::users.hello');
+            return $this->displayUserView();
         } else {
             if ($repo->isThrottled($input)) {
                 $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');
@@ -182,5 +182,26 @@ class UsersController extends Controller
         Confide::logout();
 
         return Redirect::to('users/login');
+    }
+
+    /**
+     * Displays the user view
+     *
+     * @return  Illuminate\Http\Response
+     */
+    private function displayUserView()
+    {
+        if (Entrust::hasRole('User') )
+        {
+            return View::make('users::users.helloUser');
+        }
+        elseif (Entrust::hasRole('Admin') )
+        {
+            return View::make('users::users.helloAdmin');
+        }
+        else
+        {
+            App::abort(404);
+        }
     }
 }

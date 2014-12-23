@@ -25,6 +25,7 @@ class PipindexUserServiceProvider extends \Zizaco\Confide\ServiceProvider {
         $this->package('pipindex/users');
 
         include __DIR__.'/../../routes.php';
+        include __DIR__.'/../../filters.php';
     }
 
     /**
@@ -36,6 +37,14 @@ class PipindexUserServiceProvider extends \Zizaco\Confide\ServiceProvider {
     {
         parent::register();
 
+        $providers = array(
+            'Zizaco\Entrust\EntrustServiceProvider'
+        );
+
+        foreach ($providers as $provider) {
+            $this->instances[] = $this->app->register($provider);
+        }
+
         $this->app['config']['auth.model'] = 'Pipindex\Users\PipindexUser';
         $this->app['config']['auth.driver'] = 'eloquent';
         $this->app['config']['auth.table'] = 'pipindex_users';
@@ -43,6 +52,11 @@ class PipindexUserServiceProvider extends \Zizaco\Confide\ServiceProvider {
         $this->app->bind('pipindexuser', function()
         {
             return new PipindexUser;
+        });
+
+        $this->app->bind('pipindexrole', function()
+        {
+            return new PipindexRole;
         });
 
         $this->app->bind('pipindexuserrepository', function()
@@ -54,7 +68,9 @@ class PipindexUserServiceProvider extends \Zizaco\Confide\ServiceProvider {
         {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('Confide', 'Zizaco\Confide\Facade');
+            $loader->alias('Entrust', 'Zizaco\Entrust\EntrustFacade');
             $loader->alias('PipindexUser', 'Pipindex\Facades\PipindexUser');
+            $loader->alias('PipindexRole', 'Pipindex\Facades\PipindexRole');
         });
     }
 
