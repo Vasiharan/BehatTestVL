@@ -60,7 +60,7 @@ class LaravelFeatureContext implements Context, SnippetAcceptingContext
      */
     public function iAmLoggedIn()
     {
-        $user = new \Pipindex\Users\PipindexUser();
+        $user = new \Pipindex\User\Model\User();
 
         $this->be($user);
     }
