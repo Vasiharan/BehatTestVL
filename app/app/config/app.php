@@ -121,8 +121,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Pipindex\Users\UsersServiceProvider',
-		'Pipindex\Users\PipindexUserServiceProvider',
+		'Pipindex\User\UserServiceProvider',
+		'Pipindex\Role\RoleServiceProvider',
 		'Kohkimakimoto\Adminer\AdminerServiceProvider'
 
 	),

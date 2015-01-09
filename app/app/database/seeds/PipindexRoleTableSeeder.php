@@ -12,7 +12,7 @@ class PipindexRoleTableSeeder extends Seeder {
     {
         DB::table('roles')->delete();
 
-        $admin = new Pipindex\Users\PipindexRole;
+        $admin = new Pipindex\Role\Model\Role;
         $admin->name = 'Admin';
 
         if(! $admin->save()) {
@@ -21,7 +21,7 @@ class PipindexRoleTableSeeder extends Seeder {
             Log::info('Created roles "'.$admin->name.'"');
         }
 
-        $user = new Pipindex\Users\PipindexRole;
+        $user = new Pipindex\Role\Model\Role;
         $user->name = 'User';
 
         if(! $user->save()) {

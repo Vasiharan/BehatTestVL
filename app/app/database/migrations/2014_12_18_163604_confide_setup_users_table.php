@@ -10,7 +10,7 @@ class ConfideSetupUsersTable extends Migration
     public function up()
     {
         // Creates the users table
-        Schema::create('pipindex_users', function ($table) {
+        Schema::create('users', function ($table) {
             $table->increments('id');
             $table->string('username')->unique();
             $table->string('email')->unique();
@@ -36,6 +36,6 @@ class ConfideSetupUsersTable extends Migration
     public function down()
     {
         Schema::drop('password_reminders');
-        Schema::drop('pipindex_users');
+        Schema::drop('users');
     }
 }

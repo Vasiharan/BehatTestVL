@@ -12,13 +12,13 @@ class PipindexRoleAttachTableSeeder extends Seeder {
     {
         DB::table('assigned_roles')->delete();
 
-        $user = Pipindex\Users\PipindexUser::where('username','=','vasi')->first();
-        $userRole = Pipindex\Users\PipindexRole::where('name','=','User')->first();
+        $user = Pipindex\User\Model\User::where('username','=','vasi')->first();
+        $userRole = Pipindex\Role\Model\Role::where('name','=','User')->first();
 
         $user->attachRole( $userRole );
 
-        $adminUser = Pipindex\Users\PipindexUser::where('username','=','admin')->first();
-        $adminRole = Pipindex\Users\PipindexRole::where('name','=','Admin')->first();
+        $adminUser = Pipindex\User\Model\User::where('username','=','admin')->first();
+        $adminRole = Pipindex\Role\Model\Role::where('name','=','Admin')->first();
 
         $adminUser->attachRole( $adminRole );
 

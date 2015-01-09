@@ -5,7 +5,11 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"illuminate/support": "4.2.*",
+		"zizaco/entrust": "1.2.*@dev",
+	  	"zizaco/confide": "~4.0@dev"
+
 	},
 	"require-dev": {
 	  "behat/behat": "~3.0.6",
@@ -19,7 +23,8 @@
 			"app/controllers",
 			"app/database/migrations",
 			"app/database/seeds",
-		  	"workbench/pipindex/users"
+		  	"workbench/pipindex/user",
+		  	"workbench/pipindex/role"
 		]
 	},
 	"scripts": {

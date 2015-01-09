@@ -55,8 +55,8 @@ class PermissionsTableSeeder extends Seeder {
 
         DB::table('permission_role')->delete();
 
-        $adminId = Pipindex\Users\PipindexRole::where('name','=','Admin')->first()->id;
-        $userId = Pipindex\Users\PipindexRole::where('name','=','User')->first()->id;
+        $adminId = Pipindex\Role\Model\Role::where('name','=','Admin')->first()->id;
+        $userId = Pipindex\Role\Model\Role::where('name','=','User')->first()->id;
 
         $permission_base = (int)DB::table('permissions')->first()->id - 1;
 

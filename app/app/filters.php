@@ -86,7 +86,6 @@ Route::filter('csrf', function()
 	}
 });
 
-//TODO: Should really be within the package but doesn't work!
 //Only admin can create users
 Entrust::routeNeedsRole( 'users/create', array('Admin'), Redirect::to('/'));
 

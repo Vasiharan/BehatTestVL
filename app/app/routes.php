@@ -18,3 +18,16 @@ Route::get('/', function()
 });
 
 Route::any('adminer', 'Kohkimakimoto\Adminer\Controllers\AdminerController@index');
+
+
+Route::get('users/create', 'UserController@create');
+Route::post('users', 'UserController@store');
+Route::get('users', 'UserController@login');
+Route::get('users/login', 'UserController@login');
+Route::post('users/login', 'UserController@doLogin');
+Route::get('users/confirm/{code}', 'UserController@confirm');
+Route::get('users/forgot_password', 'UserController@forgotPassword');
+Route::post('users/forgot_password', 'UserController@doForgotPassword');
+Route::get('users/reset_password/{token}', 'UserController@resetPassword');
+Route::post('users/reset_password', 'UserController@doResetPassword');
+Route::get('users/logout', 'UserController@logout');
